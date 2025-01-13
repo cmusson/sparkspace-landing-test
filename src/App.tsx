@@ -5,6 +5,7 @@ import RubricIcon from "./assets/landing/rubric.svg"
 import GradedPaperIcon from "./assets/landing/paper.svg"
 import WarningIcon from "./assets/landing/warning.svg"
 import { Card } from "@/components/ui/card"
+import { Button } from "./components/ui/button"
 
 const CANNED_FEEDBACK =
     "**Summary Evaluation Against Rubric: Accuracy (10/10):** The essay presents accurate information about Abraham Lincoln's life, presidency, and significant contributions, including key events like his election, the Civil..."
@@ -76,6 +77,9 @@ const App = () => {
                                 <div></div>
                             </div>
                         </Card>
+                    </div>
+                    <div className="mt-10 flex justify-center">
+                        <Button>Try It Free</Button>
                     </div>
                 </div>
             </div>
