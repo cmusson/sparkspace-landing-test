@@ -7,11 +7,24 @@ import WarningIcon from "./assets/landing/warning.svg"
 import { Card } from "@/components/ui/card"
 import { useTypewriter } from "./hooks/useTypewriter"
 
+import Stack from "@mui/material/Stack"
+import { Gauge } from "@mui/x-charts/Gauge"
+import { useAddition } from "./hooks/useAddition"
+
+// Type animation
+const TYPEWRITER_SPEED = 50
+// Arc and percentage animation
+const PERCENTAGE_START = 0
+const PERCENTAGE_MAX = 40
+const PERCENTAGE_STEP = 1
+
 const CANNED_FEEDBACK =
     "**Summary Evaluation Against Rubric: Accuracy (10/10):** The essay presents accurate information about Abraham Lincoln's life, presidency, and significant contributions, including key events like his election, the Civil..."
 
 const App = () => {
-    const typewriterText = useTypewriter(CANNED_FEEDBACK, 50)
+    const typewriterText = useTypewriter(CANNED_FEEDBACK, TYPEWRITER_SPEED)
+    const currentPercentage = useAddition(PERCENTAGE_START, PERCENTAGE_MAX, PERCENTAGE_STEP)
+
     return (
         <div className="flex min-h-screen w-full flex-1 flex-col">
             <div className="h-2 bg-navy-800"></div>
@@ -42,18 +55,22 @@ const App = () => {
                         <Card className="flex h-[220px] w-[370px] justify-center gap-2 rounded p-5">
                             <div className="flex flex-col items-center justify-center gap-2">
                                 <img className="h-16 w-16" src={WarningIcon} alt="AI Detection" />
-
                                 <p>AI Detection</p>
                             </div>
                             <div className="flex w-[200px] items-center justify-center">
                                 <div>
-                                    <p className="mb-3 text-sm">Probability AI generated</p>
-                                    <div className="relative flex aspect-[2] items-center justify-center overflow-hidden rounded-t-full bg-navy-900">
-                                        <div className="absolute top-0 aspect-square w-full rotate-[calc(72deg-45deg)] bg-gradient-to-tr from-transparent from-50% to-white to-50% transition-transform duration-500"></div>
-                                        <div className="absolute top-1/4 flex aspect-square w-3/4 justify-center rounded-full bg-white"></div>
-                                        <div className="absolute bottom-0 w-full truncate text-center text-2xl leading-none">
-                                            40%
-                                        </div>
+                                    <p className="mb-3 text-center text-sm">Probability AI generated</p>
+                                    <div className="relative flex items-center justify-center">
+                                        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 1, md: 3 }}>
+                                            <Gauge
+                                                width={150}
+                                                height={150}
+                                                text={({ value }) => `${value}%`}
+                                                value={currentPercentage}
+                                                startAngle={-90}
+                                                endAngle={90}
+                                            />
+                                        </Stack>
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +91,7 @@ const App = () => {
 
                                 <p>Use Your Rubric</p>
                             </div>
+
                             <div className="flex w-[200px] items-center justify-center">
                                 <div></div>
                             </div>
