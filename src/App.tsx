@@ -5,6 +5,7 @@ import RubricIcon from "./assets/landing/rubric.svg"
 import GradedPaperIcon from "./assets/landing/paper.svg"
 import WarningIcon from "./assets/landing/warning.svg"
 import { Card } from "@/components/ui/card"
+import { Button } from "./components/ui/button"
 import { useTypewriter } from "./hooks/useTypewriter"
 
 import Stack from "@mui/material/Stack"
@@ -96,6 +97,9 @@ const App = () => {
                                 <div></div>
                             </div>
                         </Card>
+                    </div>
+                    <div className="mt-10 flex justify-center">
+                        <Button>Try It Free</Button>
                     </div>
                 </div>
             </div>
