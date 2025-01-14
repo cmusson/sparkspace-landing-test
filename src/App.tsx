@@ -82,8 +82,9 @@ const App = () => {
 
                                 <p>Import Essays</p>
                             </div>
-                            <div className="flex w-[200px] items-center justify-center">
-                                <div></div>
+                            <div className="flex w-[200px] flex-col items-center justify-center">
+                                <p>Click below!</p>
+                                <div className="animate-growOnce text-navy-800">{"↓"}</div>
                             </div>
                         </Card>
                         <Card className="flex h-[220px] w-[370px] justify-center gap-2 rounded p-5">
@@ -93,12 +94,13 @@ const App = () => {
                                 <p>Use Your Rubric</p>
                             </div>
 
-                            <div className="flex w-[200px] items-center justify-center">
-                                <div></div>
+                            <div className="flex w-[200px] flex-col items-center justify-center">
+                                <p>Click below!</p>
+                                <div className="animate-growOnce text-navy-800">{"↓"}</div>
                             </div>
                         </Card>
                     </div>
-                    <div className="mt-10 flex justify-center">
+                    <div className="mt-10 flex animate-bounce justify-center">
                         <Button>Try It Free</Button>
                     </div>
                 </div>
